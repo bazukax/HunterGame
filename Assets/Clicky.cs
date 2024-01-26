@@ -81,6 +81,7 @@ public class Clicky : MonoBehaviour
         {
             TakeDamage(1);
             DealDamge();
+
         }
     }
 

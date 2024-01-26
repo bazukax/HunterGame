@@ -606,7 +606,7 @@ MonoBehaviour:
   health: 1
   lifetime: 3
   damage: 3
-  damageKey: 113
+  damageKey: 119
   OnKilledByPlayer:
     m_PersistentCalls:
       m_Calls:
