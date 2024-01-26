@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
+using System;
 
 public class Clicky : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class Clicky : MonoBehaviour
     public List<Clicky> comboClickies = new List<Clicky>();
 
     Monster monster;
-
+   [SerializeField] SimpleClickHandler clickHandler;
     void DealDamge()
     {
         monster?.TakeDamage(damage);
@@ -31,9 +32,19 @@ public class Clicky : MonoBehaviour
     {
         monster = target;
     }
+    public void SetClickHandler(SimpleClickHandler clickHandler)
+    {
+        this.clickHandler = clickHandler;
+    }
     private void Awake()
     {
         keyToPushText.text = damageKey.ToString();
+
+    }
+    private void Start()
+    {
+        if (clickHandler != null)
+            clickHandler.OnKeyboardClick += HandleKeyClick;
     }
     void TakeDamage(int amount)
     {
@@ -43,33 +54,39 @@ public class Clicky : MonoBehaviour
     void Death()
     {
         OnKilledByPlayer.Invoke();
-        Instantiate(OnKilledEffect,transform.position,Quaternion.identity);
+        Instantiate(OnKilledEffect, transform.position, Quaternion.identity);
 
-        if(comboButton)
+        if (comboButton)
         {
-           GameObject newClicky =  Instantiate(comboClickies[0].gameObject,transform.position + Vector3.right,Quaternion.identity);
+            GameObject newClicky = Instantiate(comboClickies[0].gameObject, transform.position + Vector3.right, Quaternion.identity);
+            Clicky comboClicky = newClicky.GetComponent<Clicky>();
+            comboClicky.SetClickHandler(clickHandler);
             comboClickies.RemoveAt(0);
-            if(comboClickies.Count > 0)
+            if (comboClickies.Count > 0)
             {
-                Clicky comboClicky = newClicky.GetComponent<Clicky>();
+       
+              
                 comboClicky.comboClickies = new List<Clicky>(comboClickies);
                 comboClicky.comboButton = true;
                 comboClicky.SetTarget(monster);
-
+               
             }
-           
-        }
 
+        }
+        if (clickHandler != null)
+            clickHandler.OnKeyboardClick -= HandleKeyClick;
         Destroy(this.gameObject);
     }
     void OnLifetimeRunOut()
     {
+        if (clickHandler != null)
+            clickHandler.OnKeyboardClick -= HandleKeyClick;
         Destroy(this.gameObject);
     }
     private void Update()
     {
         lifetime -= 1 * Time.deltaTime;
-        if(lifetimeText != null)
+        if (lifetimeText != null)
         {
             lifetimeText.text = lifetime.ToString("F2");
         }
@@ -77,13 +94,22 @@ public class Clicky : MonoBehaviour
         if (lifetime < 0)
             OnLifetimeRunOut();
 
-        if (Input.GetKeyDown(damageKey))
+    }
+
+
+    private void HandleKeyClick(KeyCode code)
+    {
+        if (code == damageKey)
         {
             TakeDamage(1);
             DealDamge();
-
+        }
+        else
+        {
+            OnLifetimeRunOut();
         }
     }
+
 
 
 }

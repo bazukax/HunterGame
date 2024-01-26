@@ -420,6 +420,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1527428551}
   - component: {fileID: 1527428550}
+  - component: {fileID: 1527428552}
   m_Layer: 0
   m_Name: GameLogic
   m_TagString: Untagged
@@ -441,7 +442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttons: []
   objectToSpawn: {fileID: 7513379635403103726, guid: d73ea811fe4f3c84f8e1cc965b4b3fdf, type: 3}
-  spawnInterval: 5
+  spawnInterval: 2
   monster: {fileID: 2053134745}
 --- !u!4 &1527428551
 Transform:
@@ -458,6 +459,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1527428552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527428549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985e2b00288333a49b262f139e08dd82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2053134743
 PrefabInstance:
   m_ObjectHideFlags: 0
