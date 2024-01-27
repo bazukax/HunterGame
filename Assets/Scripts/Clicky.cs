@@ -4,11 +4,13 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 using System;
+using UnityEngine.UI;
 
 public class Clicky : MonoBehaviour
 {
     public int health = 1;
     public float lifetime = 2;
+    public float maxLifetime = 2;
     public int damage = 3;
 
     public KeyCode damageKey = KeyCode.Q;
@@ -17,6 +19,7 @@ public class Clicky : MonoBehaviour
     [SerializeField] GameObject OnKilledEffect;
 
     [SerializeField] TMP_Text lifetimeText;
+    [SerializeField] Image progressBar;
 
     public bool comboButton = false;
     public List<Clicky> comboClickies = new List<Clicky>();
@@ -44,8 +47,10 @@ public class Clicky : MonoBehaviour
 
     private void Start()
     {
+        lifetimeText.text = "";
         if (clickHandler != null)
             clickHandler.OnKeyboardClick += HandleKeyClick;
+        maxLifetime = lifetime;
     }
     void TakeDamage(int amount)
     {
@@ -102,7 +107,8 @@ public class Clicky : MonoBehaviour
         lifetime -= 1 * Time.deltaTime;
         if (lifetimeText != null)
         {
-            lifetimeText.text = lifetime.ToString("F2");
+           // lifetimeText.text = lifetime.ToString("F2");
+            progressBar.fillAmount = lifetime / maxLifetime;
         }
 
         if (lifetime < 0)
