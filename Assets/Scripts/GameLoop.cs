@@ -56,6 +56,7 @@ public class GameLoop : MonoBehaviour
     }
     public void OnFailure()
     {
+        PlayerAnimator.Play("HitDelayed");
         int rngShitTalk = Random.Range(0, segments[currentSegment].shitTalks.Count);
         audioSource.PlayOneShot(segments[currentSegment].shitTalks[rngShitTalk]);
 
