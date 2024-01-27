@@ -605,7 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 1
   lifetime: 3
-  damage: 3
+  damage: 1
   damageKey: 119
   OnKilledByPlayer:
     m_PersistentCalls:
@@ -629,3 +629,5 @@ MonoBehaviour:
   comboClickies:
   - {fileID: 1306855111982257730, guid: 8364f9c65c3f67a4dbbede02563c7f4d, type: 3}
   - {fileID: 1306855111982257730, guid: 578987c1ad279c548b87f4d2ead32eb6, type: 3}
+  monster: {fileID: 0}
+  clickHandler: {fileID: 0}

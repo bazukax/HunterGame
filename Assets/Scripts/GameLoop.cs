@@ -8,6 +8,7 @@ public class GameLoop : MonoBehaviour
     public GameObject objectToSpawn;
     public float spawnInterval = 5f; // Time interval between spawns in seconds
     public Monster monster;
+    public Player player;
     public SimpleClickHandler clickHandler;
 
     private float timer;
@@ -34,6 +35,8 @@ public class GameLoop : MonoBehaviour
        GameObject clicky = Instantiate(objectToSpawn, transform.position, Quaternion.identity);
         Clicky clickyBtn = clicky.GetComponent<Clicky>();
         clickyBtn.SetClickHandler( clickHandler );
+        clickyBtn.SetTarget(monster);
+        clickyBtn.SetPlayer(player);
     }
 
     public void RestartTimer()

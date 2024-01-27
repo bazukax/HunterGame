@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
     [SerializeField] GameObject OnKilledEffect;
     [SerializeField] TMP_Text lifeText;
 
+    public Health hpUI;
     void DealDamge()
     {
 
@@ -26,14 +27,16 @@ public class Monster : MonoBehaviour
     public void TakeDamage(int amount)
     {
         health -= amount;
+        hpUI.health = health;
         lifeText.text = health.ToString();
         if (health <= 0) Death();
     }
     void Death()
     {
+        hpUI.health = 0;
         OnKilledByPlayer.Invoke();
         Instantiate(OnKilledEffect, transform.position, Quaternion.identity);
-        Destroy(this.gameObject);
+        enabled = false;
     }
 
     private void Update()

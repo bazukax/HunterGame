@@ -22,7 +22,9 @@ public class Clicky : MonoBehaviour
     public bool comboButton = false;
     public List<Clicky> comboClickies = new List<Clicky>();
 
-    Monster monster;
+   [SerializeField] Monster monster;
+   [SerializeField] Player player;
+
    [SerializeField] SimpleClickHandler clickHandler;
     void DealDamge()
     {
@@ -31,6 +33,10 @@ public class Clicky : MonoBehaviour
     public void SetTarget(Monster target)
     {
         monster = target;
+    }
+    public void SetPlayer(Player mainplayer)
+    {
+        player = mainplayer;
     }
     public void SetClickHandler(SimpleClickHandler clickHandler)
     {
@@ -69,16 +75,29 @@ public class Clicky : MonoBehaviour
                 comboClicky.comboClickies = new List<Clicky>(comboClickies);
                 comboClicky.comboButton = true;
                 comboClicky.SetTarget(monster);
-               
+                comboClicky.SetPlayer(player);
+
+
+            }
+            else
+            {
+                comboClicky.comboButton = false;
+                comboClicky.SetTarget(monster);
+                comboClicky.SetPlayer(player);
             }
 
+        }else
+        {
+            DealDamge();
         }
+
         if (clickHandler != null)
             clickHandler.OnKeyboardClick -= HandleKeyClick;
         Destroy(this.gameObject);
     }
     void OnLifetimeRunOut()
     {
+        player.TakeDamage(1);
         if (clickHandler != null)
             clickHandler.OnKeyboardClick -= HandleKeyClick;
         Destroy(this.gameObject);
@@ -102,7 +121,7 @@ public class Clicky : MonoBehaviour
         if (code == damageKey)
         {
             TakeDamage(1);
-            DealDamge();
+           
         }
         else
         {
