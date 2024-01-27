@@ -22,7 +22,7 @@ public class Monster : MonoBehaviour
     }
     private void Awake()
     {
-        lifeText.text = health.ToString();
+      //  lifeText.text = health.ToString();
     }
     public void TakeDamage(int amount)
     {

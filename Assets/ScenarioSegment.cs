@@ -5,6 +5,15 @@ using UnityEngine;
 public class ScenarioSegment : MonoBehaviour
 {
     public AudioClip mainVoiceover;
+    public AudioClip getHit;
+    public List<AudioClip> shitTalks;
+
+
+    public string idle;
+    public string talk;
+    public string attack;
+    public string block;
+
     //shittalking
 
     //mygtukai
@@ -12,8 +21,10 @@ public class ScenarioSegment : MonoBehaviour
     //
     //
 
-    // 5 main voiceovers - from full health - to low health
+    // 5 main voiceovers - from full health -> to low health
     // 10 random taking a hit voiceovers;
     // 10 random shit talk voiceovers;
+
+
 
 }
