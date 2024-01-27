@@ -24,13 +24,19 @@ public class Clicky : MonoBehaviour
     public bool comboButton = false;
     public List<Clicky> comboClickies = new List<Clicky>();
 
-   [SerializeField] Monster monster;
-   [SerializeField] Player player;
+    [SerializeField] Monster monster;
+    [SerializeField] Player player;
+    [SerializeField] GameLoop gameLoop;
 
-   [SerializeField] SimpleClickHandler clickHandler;
+    [SerializeField] SimpleClickHandler clickHandler;
     void DealDamge()
     {
         monster?.TakeDamage(damage);
+        gameLoop.OnSuccessfulHit();
+    }
+    public void SetGameLoop(GameLoop game)
+    {
+        gameLoop = game;
     }
     public void SetTarget(Monster target)
     {
@@ -70,12 +76,13 @@ public class Clicky : MonoBehaviour
             comboClickies.RemoveAt(0);
             if (comboClickies.Count > 0)
             {
-       
-              
+
+
                 comboClicky.comboClickies = new List<Clicky>(comboClickies);
                 comboClicky.comboButton = true;
                 comboClicky.SetTarget(monster);
                 comboClicky.SetPlayer(player);
+                comboClicky.SetGameLoop(gameLoop);
 
 
             }
@@ -84,9 +91,11 @@ public class Clicky : MonoBehaviour
                 comboClicky.comboButton = false;
                 comboClicky.SetTarget(monster);
                 comboClicky.SetPlayer(player);
+                comboClicky.SetGameLoop(gameLoop);
             }
 
-        }else
+        }
+        else
         {
             DealDamge();
         }
@@ -97,6 +106,7 @@ public class Clicky : MonoBehaviour
     }
     void OnLifetimeRunOut()
     {
+        gameLoop.OnFailure();
         player.TakeDamage(1);
         if (clickHandler != null)
             clickHandler.OnKeyboardClick -= HandleKeyClick;
@@ -107,7 +117,7 @@ public class Clicky : MonoBehaviour
         lifetime -= 1 * Time.deltaTime;
         if (lifetimeText != null)
         {
-           // lifetimeText.text = lifetime.ToString("F2");
+            // lifetimeText.text = lifetime.ToString("F2");
             progressBar.fillAmount = lifetime / maxLifetime;
         }
 
@@ -122,7 +132,7 @@ public class Clicky : MonoBehaviour
         if (code == damageKey)
         {
             TakeDamage(1);
-           
+
         }
         else
         {

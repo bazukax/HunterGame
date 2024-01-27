@@ -7,6 +7,7 @@ public class ScenarioSegment : MonoBehaviour
     public AudioClip mainVoiceover;
     public AudioClip getHit;
     public List<AudioClip> shitTalks;
+    public GameObject clicky;
 
 
     public string idle;

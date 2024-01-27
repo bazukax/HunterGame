@@ -28,7 +28,7 @@ public class Monster : MonoBehaviour
     {
         health -= amount;
         hpUI.health = health;
-        lifeText.text = health.ToString();
+       // lifeText.text = health.ToString();
         if (health <= 0) Death();
     }
     void Death()
