@@ -70,7 +70,7 @@ public class Clicky : MonoBehaviour
 
         if (comboButton)
         {
-            GameObject newClicky = Instantiate(comboClickies[0].gameObject, transform.position + Vector3.right, Quaternion.identity);
+            GameObject newClicky = Instantiate(comboClickies[0].gameObject, transform.position, Quaternion.identity);
             Clicky comboClicky = newClicky.GetComponent<Clicky>();
             comboClicky.SetClickHandler(clickHandler);
             comboClickies.RemoveAt(0);

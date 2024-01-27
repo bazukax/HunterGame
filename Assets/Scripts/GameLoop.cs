@@ -15,6 +15,7 @@ public class GameLoop : MonoBehaviour
     public int currentSegment = 0;
 
     public SceneManger sceneManger;
+    public Animator monsterAnimator;
 
     void Start()
     {
@@ -48,17 +49,22 @@ public class GameLoop : MonoBehaviour
         {
             Invoke("Victory", segments[currentSegment].getHit.length + 0.5f);
         }
+        monsterAnimator.Play("GetHit");
     }
     public void OnFailure()
     {
         int rngShitTalk = Random.Range(0, segments[currentSegment].shitTalks.Count);
         audioSource.PlayOneShot(segments[currentSegment].shitTalks[rngShitTalk]);
 
-        if (player.health <= 1) Invoke("ChangeScene", segments[currentSegment].shitTalks[rngShitTalk].length + 0.5f);
+        if (player.health <= 1)
+        {
+            Invoke("ChangeScene", segments[currentSegment].shitTalks[rngShitTalk].length + 0.5f);
+        }
         else
         {
             Invoke("SpawnClicky", segments[currentSegment].shitTalks[rngShitTalk].length + 0.5f);
         }
+        monsterAnimator.Play("Attack");
 
         segments[currentSegment].shitTalks.RemoveAt(rngShitTalk);
        
@@ -66,12 +72,10 @@ public class GameLoop : MonoBehaviour
     }
     void ChangeScene()
     {
-
             sceneManger.ChangeScene(0);
     }
     void Victory()
     {
-
         sceneManger.ChangeScene(0);
     }
 
