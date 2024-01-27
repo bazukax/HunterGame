@@ -385,7 +385,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 786ed1f465e9bc242807a776e124fc51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0b33c175169798a4fb813e0a3d835402, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -407,7 +407,7 @@ GameObject:
   - component: {fileID: 6593243925429473035}
   - component: {fileID: 7951750762521098197}
   m_Layer: 0
-  m_Name: Stage3
+  m_Name: Stage4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   lifetime: 3
   maxLifetime: 2
   damage: 1
-  damageKey: 101
+  damageKey: 113
   OnKilledByPlayer:
     m_PersistentCalls:
       m_Calls:
@@ -467,14 +467,17 @@ MonoBehaviour:
   progressBar: {fileID: 5930013825612419156}
   comboButton: 1
   comboClickies:
-  - {fileID: 1306855111982257730, guid: 095516e557e9a954f9552a7493da8a98, type: 3}
-  - {fileID: 3972628208493405772, guid: 9e06bef6550f3fb488155f5316a9ce88, type: 3}
-  - {fileID: 4187093521026335181, guid: f7fe4d3bc6d44164ba958f70f8f87b46, type: 3}
-  - {fileID: 4187093521026335181, guid: f7fe4d3bc6d44164ba958f70f8f87b46, type: 3}
   - {fileID: 4741701344122062585, guid: 30252b3df478c1f488134331e44c56ab, type: 3}
-  - {fileID: 9109595180680155697, guid: 53fe4ddf1a37d5d4badc099d16aba00f, type: 3}
   - {fileID: 2003694661561875413, guid: 29a658827ebddb74992c34d20cbbf948, type: 3}
   - {fileID: 86876862058335530, guid: 6a3391652402a5a4185d6ff5c1e28043, type: 3}
+  - {fileID: 4187093521026335181, guid: f7fe4d3bc6d44164ba958f70f8f87b46, type: 3}
+  - {fileID: 4187093521026335181, guid: f7fe4d3bc6d44164ba958f70f8f87b46, type: 3}
+  - {fileID: 3972628208493405772, guid: 9e06bef6550f3fb488155f5316a9ce88, type: 3}
+  - {fileID: 3972628208493405772, guid: 9e06bef6550f3fb488155f5316a9ce88, type: 3}
+  - {fileID: 4741701344122062585, guid: 30252b3df478c1f488134331e44c56ab, type: 3}
+  - {fileID: 7888635425822867627, guid: 1a551fc90cd42b340ad47bfe8f1f66d0, type: 3}
+  - {fileID: 9109595180680155697, guid: 53fe4ddf1a37d5d4badc099d16aba00f, type: 3}
+  - {fileID: 2003694661561875413, guid: 29a658827ebddb74992c34d20cbbf948, type: 3}
   monster: {fileID: 0}
   player: {fileID: 0}
   gameLoop: {fileID: 0}
