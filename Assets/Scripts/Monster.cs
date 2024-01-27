@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
     [SerializeField] GameObject OnKilledEffect;
     [SerializeField] TMP_Text lifeText;
 
+    [SerializeField] BlendShapeController shapeController;
     public Health hpUI;
     void DealDamge()
     {
@@ -30,6 +31,8 @@ public class Monster : MonoBehaviour
         hpUI.health = health;
        // lifeText.text = health.ToString();
         if (health <= 0) Death();
+
+        shapeController.SetBlendShapesForAllRenderers(100-health*30);
     }
     void Death()
     {

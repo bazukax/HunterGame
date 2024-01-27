@@ -64,7 +64,7 @@ public class GameLoop : MonoBehaviour
         {
             Invoke("SpawnClicky", segments[currentSegment].shitTalks[rngShitTalk].length + 0.5f);
         }
-        monsterAnimator.Play("Attack");
+        monsterAnimator.Play("ShitTalk");
 
         segments[currentSegment].shitTalks.RemoveAt(rngShitTalk);
        
