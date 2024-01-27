@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b33c175169798a4fb813e0a3d835402, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c54493302461d5c4a90de6c8912275d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 2919355833769280878}
   - component: {fileID: 1306855111982257730}
   m_Layer: 0
-  m_Name: TargetButton
+  m_Name: TargetButton 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
   health: 1
   lifetime: 2
   damage: 1
-  damageKey: 113
+  damageKey: 114
   OnKilledByPlayer:
     m_PersistentCalls:
       m_Calls:

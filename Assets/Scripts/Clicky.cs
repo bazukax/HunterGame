@@ -17,7 +17,6 @@ public class Clicky : MonoBehaviour
     [SerializeField] GameObject OnKilledEffect;
 
     [SerializeField] TMP_Text lifetimeText;
-    [SerializeField] TMP_Text keyToPushText;
 
     public bool comboButton = false;
     public List<Clicky> comboClickies = new List<Clicky>();
@@ -42,11 +41,7 @@ public class Clicky : MonoBehaviour
     {
         this.clickHandler = clickHandler;
     }
-    private void Awake()
-    {
-        keyToPushText.text = damageKey.ToString();
 
-    }
     private void Start()
     {
         if (clickHandler != null)
