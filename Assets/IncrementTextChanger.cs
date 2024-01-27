@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class IncrementTextChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public List<string> textList = new List<string>();
+    public TMP_Text text;
+    public int index = 0;
+    public void IncrementList()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        index++;
+        if (index < textList.Count)
+        {         
+            text.text = textList[index];
+        }
+        else
+        {
+            index = 0;
+            text.text = textList[index];
+        }
     }
 }
