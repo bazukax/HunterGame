@@ -18,6 +18,7 @@ public class GameLoop : MonoBehaviour
     public Animator monsterAnimator;
     public Animator PlayerAnimator;
 
+
     void Start()
     {
         BeginSegment();
