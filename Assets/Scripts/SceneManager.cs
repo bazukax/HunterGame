@@ -10,34 +10,7 @@ public class SceneManger : MonoBehaviour
     {
         Time.timeScale = 1f;
     }
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad0))
-        {
-            ChangeScene(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            ChangeScene(1);
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            ChangeScene(2);
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            ChangeScene(3);
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad4))
-        {
-            ChangeScene(4);
-        }
-        else if (Input.GetKeyDown(KeyCode.Keypad5))
-        {
-            ChangeScene(5);
-        }
-        // Add more conditions for other numpad keys as needed.
-    }
+
 
     public void ChangeScene(int sceneIndex)
     {

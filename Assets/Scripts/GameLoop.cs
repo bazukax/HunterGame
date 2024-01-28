@@ -77,11 +77,11 @@ public class GameLoop : MonoBehaviour
     }
     void ChangeScene()
     {
-            sceneManger.ChangeScene(0);
+            sceneManger.ChangeScene(4);
     }
     void Victory()
     {
-        sceneManger.ChangeScene(0);
+        sceneManger.ChangeScene(3);
     }
 
 }
